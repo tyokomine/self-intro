@@ -1,90 +1,492 @@
 <!DOCTYPE html>
 <html>
-<head>
-	<meta http-equiv="content-type" content="text/html; charset=UTF-8" />
-
-	<title>skrollr - parallax scrolling for the masses</title>
-
-	<link href="skrollr.css" rel="stylesheet" type="text/css" />
-	<link href="demo/style.css" rel="stylesheet" type="text/css" />
-</head>
-
-<body class="notransition">
-	<div id="bg1" data-0="background-position:0% 0%;" data-end="background-position:-100% -1500%;"></div>
-	<div id="bg2" data-0="background-position:0% 0%;" data-end="background-position:-50% -1200%;"></div>
-	<div id="bg3" data-0="background-position:0% 0%;" data-end="background-position:-25% -800%;"></div>
-	<div id="progress" data-0="width:0%;background:hsl(200, 100%, 50%);" data-end="width:100%;background:hsl(920, 100%, 50%);"></div>
-
-	<div id="intro" data-0="" data-100="opacity:1;top:3%;transform:rotate(0deg);transform-origin:0 0;" data-500="opacity:0;top:-10%;transform:rotate(-90deg);">
-		<h1><a href="https://github.com/Prinzhorn/skrollr">skrollr</a></h1>
-		<h2>parallax scrolling for the masses</h2>
-		<p>let's get scrollin' ;-)</p>
-		<p class="arrows">▼&nbsp;▼&nbsp;▼</p>
-	</div>
-
-	<div id="transform" data-500="transform:scale(0) rotate(0deg);" data-1000="transform:scale(1) rotate(1440deg);opacity:1;" data-1600="" data-1700="transform:scale(10) rotate(3240deg);opacity:0;">
-		<h2>transform</h2>
-		<p>scale, skew and rotate the sh** out of any element</p>
-	</div>
-
-	<div id="properties" data-1700="top:100%;" data-2200="top:0%;" data-3000="display:block;" data-3700="top:-100%;display:none;">
-		<h2>all numeric properties</h2>
-		<p>width, height, padding, font-size, z-index, blah blah blah</p>
-	</div>
-
-	<div id="easing_wrapper" data-3900="" data-4900="background:rgba(0, 0, 0, 0);color[swing]:rgb(0,0,0);" data-5900="background:rgba(0,0,0,1);color:rgb(255,255,255);" data-10000="top:0%;" data-12000="top:-100%;">
-		<div id="easing" data-3900="left:100%" data-4600="left:25%;">
-			<h2>easing?</h2>
-			<p>sure.</p>
-			<p>let me dim the <span data-3900="" data-4900="color[swing]:rgb(0,0,0);" data-5900="color:rgb(255,255,0);">lights</span> for this one...</p>
-			<p data-5900="opacity:0;font-size:100%;" data-6500="opacity:1;font-size:150%;">you can set easings for each property and define own easing functions</p>
+	<head>
+		<meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+		<title>skrollr - parallax scrolling for the masses</title>
+		<link href="skrollr.css" rel="stylesheet" type="text/css" />
+		<!-- 	<link href="demo/style.css" rel="stylesheet" type="text/css" /> -->
+		<link href="tyokomine.css" rel="stylesheet" type="text/css" />
+	</head>
+	<body class="notransition">
+		<div id="bg1" data-0="background-position:0% 0%;"></div>
+		<!-- 	<div id="bg3" data-0="background-position:0% 0%;" data-end="background-position:-25% -800%;"></div> -->
+		<div id="progress" data-0="width:0%;background:hsl(200, 100%, 50%);" data-end="width:100%;background:hsl(920, 100%, 50%);"></div>
+		<div id="easing_wrapper" data-0="background:rgba(0,0,0,1);color:rgb(255,255,255);" data-1000="background:rgba(0, 0, 0, 0);color[swing]:rgb(0,0,0);" data-2000="" data-10000="top:0%;" data-12000="top:-100%;">
+			<div id="intro_gif" data-0="" data-100="opacity:1;top:20%;transform:rotate(0deg);transform-origin:0 0;" data-500="opacity:0;top:-10%;transform:rotate(-90deg);"></div>
+			<div id="top" data-0="" data-100="opacity:1;top:60%;transform:rotate(0deg);transform-origin:0 0;" data-500="opacity:0;top:-10%;transform:rotate(-90deg);">
+				<h1>tatsuki yokomine</h1>
+				<p class="arrows">
+					<a href="" style="text-decoration: none;color: red"> ▼&nbsp; Let's hack begin &nbsp;▼</a>
+				</p>
+			</div>
+			<div id="mp3" data-0="opacity:1" data-1="opacity:0">
+				<embed src= "mp3/lets_hack_begin.mp3"　loop="false"　autostart="true">
+			</div>
 		</div>
-
-		<div class="drop notransition" data-6500="left:15%;bottom:100%;" data-9500="bottom:0%;">linear</div>
-		<div class="drop notransition" data-6500="left:25%;bottom[quadratic]:100%;" data-9500="bottom:0%;">quadratic</div>
-		<div class="drop notransition" data-6500="left:35%;bottom[cubic]:100%;" data-9500="bottom:0%;">cubic</div>
-		<div class="drop notransition" data-6500="left:45%;bottom[swing]:100%;" data-9500="bottom:0%;">swing</div>
-		<div class="drop notransition" data-6500="left:55%;bottom[WTF]:100%;" data-9500="bottom:0%;">WTF</div>
-		<div class="drop notransition" data-6500="left:65%;bottom[inverted]:100%;" data-9500="bottom:0%;">inverted</div>
-		<div class="drop notransition" data-6500="left:75%;bottom[bounce]:100%;" data-9500="bottom:0%;">bounce</div>
-	</div>
-
-	<div id="download" data-10000="top[cubic]:100%;border-radius[cubic]:0em;background:rgb(0,50,100);border-width:0px;" data-12000="top:10%;border-radius:2em;background:rgb(190,230,255);border-width:10px;">
-		<h2>the end</h2>
-		<p>by the way, you can also animate colors (you did notice this, didn't you?)</p>
-		<p><strong>Now get this thing on <a href="https://github.com/Prinzhorn/skrollr">GitHub</a> and spread the word, it's open source!</strong> <a href="https://twitter.com/share" class="twitter-share-button" data-url="http://prinzhorn.github.com/skrollr/" data-via="Prinzhorn">Tweet</a>
-<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script></p>
-		<p>Check out more <a href="https://github.com/Prinzhorn/skrollr/tree/master/examples#examples">examples</a>.</p>
-		<p>Handcrafted by <a href="https://twitter.com/Prinzhorn" class="twitter-follow-button" data-show-count="false">Follow @Prinzhorn</a>
-<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script></p>
-	</div>
-
-	<script type="text/javascript">
-	if(location.search === '?debug') {
-		document.write('<script type="text/javascript" src="https://getfirebug.com/firebug-lite.js"><' + '/script>');
-	}
-	</script>
-
-	<script type="text/javascript" src="skrollr.js"></script>
-	<!--[if lt IE 9]>
-	<script type="text/javascript" src="plugins/skrollr.ie.js"></script>
-	<![endif]-->
-	<script type="text/javascript">
-	var s = skrollr.init({
-		beforerender: function(data) {
-			//console.log('beforerender');
-		},
-		render: function() {
-			//console.log('render');
-		},
-		easing: {
-			WTF: Math.random,
-			inverted: function(p) {
-				return 1-p;
+		<div id="header" data-1000="">
+			<img src="img/facebook.png" />
+		</div>
+		<div id="cover" data-1000="" data-1500="opacity:1;top:4%;transform:rotate(0deg);transform-origin:0 0;" data-1700="opacity:0;top:-10%;transform:rotate(-90deg);"></div>
+		<div id="profile" data-1000="" data-1400="left:47.5%" data-1700="left:117.5%" data-2300="left:117.5%" data-2600="left:255%;"></div>
+		<div id="info" data-1000="" data-1500="opacity:1;top:42%;transform:rotate(0deg);transform-origin:0 0;" data-1700="opacity:0;top:-10%;transform:rotate(90deg);"></div>
+		<div id="timeline" data-1500="top:100%;" data-1700="top:26%;" data-1900="display:block;" data-3400="top:-100%;display:none"><img src="img/introducing_timeline.png" />
+		</div>
+		<div class="big-event" id="born" data-2000="top:100%;" data-2700="top:10%;" data-3400="display:block;" data-4200="top:-100%;display:none;">
+			<img src="img/born.png" />
+			<div id="title">
+				Born on December 10, 1985
+			</div>
+			<p>
+				Father — Koichiro Yokomine
+			</p>
+			<p>
+				Mother — Michiko Yokomine
+			</p>
+			<p>
+				Hometown — Kobe-shi, Hyogo, Japan.
+			</p>
+		</div>
+		<div id="line" data-2700="opacity:1;" data-20000="opacity:1;" data-20500="opacity:0;">
+			<table style="height: 650px; width: 1px; background-color: #ADBAD4; border-collapse: collapse;">
+				<tr>
+					<td></td>
+				</tr>
+			</table>
+		</div>
+		<div class="harf-left" id="mario" data-3000="top:100%;" data-3700="top:10%;" data-4500="display:block;" data-5200="top:-100%;display:none;">
+			<table>
+				<tr>
+					<td class="icon"><img src="img/nintendo-logo.png" /></td>
+					<td class="post-comment"><a href="#">スーパーマリオブラザーズ</a>が発売されました
+					<div class="date-place">
+						1985年9月13日　任天堂
+					</div></td>
+				</tr>
+			</table>
+			<hr style="color: #ADBAD4" />
+			<div class="description">
+				人生最初の挫折はノコノコでした。。
+			</div>
+			<img src="img/mario-nokonoko.png" />
+		</div>
+		<div class="harf-right" id="tigers" data-3500="top:100%;" data-4200="top:10%;" data-5000="display:block;" data-5700="top:-100%;display:none;">
+			<table>
+				<tr>
+					<td class="icon"><img src="img/tigers_logo.png" /></td>
+					<td class="post-comment"><a href="#">阪神タイガース</a>が優勝しました。
+					<div class="date-place">
+						1985年11月2日　西武ドーム
+					</div></td>
+				</tr>
+			</table>
+			<hr style="color: #ADBAD4" />
+			<div class="description">
+				バース・掛布・岡田最高 !!
+			</div>
+			<img src="img/base-kakehu-okada.png" />
+		</div>
+		<div class="big-event" data-5000="top:100%;" data-5700="top:10%;" data-5900="display:block;" data-7200="top:-100%;display:none;">
+			<img src="img/school.png" />
+			<div id="title">
+				Started school at 小寺小学校
+			</div>
+			<p>
+				kobe, Hyogo 1992
+			</p>
+		</div>
+		<div class="harf-right" id="mario" data-5400="top:100%;" data-6100="top:10%;" data-7000="display:block;" data-7700="top:-100%;display:none;">
+			<table>
+				<tr>
+					<td class="icon"><img src="img/jleague-logo.jpeg" /></td>
+					<td class="post-comment"><a href="">Jリーグ</a>が開幕しました
+					<div class="date-place">
+						1993年5月15日　国立競技場
+					</div></td>
+				</tr>
+			</table>
+			<hr style="color: #ADBAD4" />
+			<div class="description">
+				カズのユニフォームで登校してました。
+				<br>
+				<br>
+				今でもカズのファンです。
+			</div>
+			<img src="img/kazu.jpeg" />
+		</div>
+		<div class="harf-left" id="foagura" data-5900="top:100%;" data-6600="top:10%;" data-7100="display:block;" data-7500="top:-100%;display:none;">
+			<table>
+				<tr>
+					<td class="icon"><img src="img/me-logo.png" /></td>
+					<td class="post-comment"><a href="">Tatsuki Yokomine</a>がフォアグラに出会いました。
+					<div class="date-place">
+						1995年ぐらい　神戸のどっか
+					</div></td>
+				</tr>
+			</table>
+			<hr style="color: #ADBAD4" />
+			<div class="description">
+				フォアグラのステーキうますぎ(ﾟ∀ﾟ)ｷﾀｺﾚ!!
+				<br />
+				<br />
+				もう味忘れました。。＼(^o^)／
+			</div>
+			<img src="img/foagura.jpeg" />
+		</div>
+		<div class="big-event" data-7000="top:100%;" data-7700="top:10%;" data-7900="display:block;" data-9200="top:-100%;display:none;">
+			<img src="img/school.png" />
+			<div id="title">
+				Started school at 太山寺中学校
+			</div>
+			<p>
+				kobe, Hyogo 1998
+			</p>
+		</div>
+		<div class="harf-left" id="yazawa" data-7600="top:100%;" data-8300="top:10%;" data-8800="display:block;" data-9900="top:-100%;display:none;">
+			<table>
+				<tr>
+					<td class="icon"><img src="img/yazawa-logo.jpg" /></td>
+					<td class="post-comment"><a href="">E Yazawa</a>が「止まらない Ha〜Ha」を歌っています。
+					<div class="date-place">
+						1998年ぐらい　主に車のBGM
+					</div></td>
+				</tr>
+			</table>
+			<hr style="color: #ADBAD4" />
+			<div class="description">
+				OK ! Lock'on Roll !!
+			</div>
+			<iframe id="youtube-yazawa" width="400" height="300" src="http://www.youtube.com/embed/adTzneONG1c" frameborder="0" allowfullscreen></iframe>
+		</div>
+		<div class="harf-right" id="cloud" data-8400="top:100%;" data-9100="top:10%;" data-9300="display:block;" data-10200="top:-100%;display:none;">
+			<table>
+				<tr>
+					<td class="icon"><img src="img/cloud-logo.png" /></td>
+					<td class="post-comment"><a href="">クラウド</a>がセフィロスを倒しました
+					<div class="date-place">
+						1997年くらい　横峯家
+					</div></td>
+				</tr>
+			</table>
+			<hr style="color: #ADBAD4" />
+			<div class="description">
+				部活とFFの日々でした。
+				<br>
+				<br>
+				セフィロスとヴィンセントが好きです。
+			</div>
+			<img src="img/ff7.jpeg" />
+		</div>
+		<div class="big-event" data-9300="top:100%;" data-10000="top:10%;" data-10200="display:block;" data-12200="top:-100%;display:none;">
+			<img src="img/school.png" />
+			<div id="title">
+				Started school at 星陵高等学校
+			</div>
+			<p>
+				kobe, Hyogo 2001
+			</p>
+		</div>
+		<div class="harf-left" id="ibra" data-10000="top:100%;" data-10500="top:10%;" data-11000="display:block;" data-11700="top:-100%;display:none;">
+			<table>
+				<tr>
+					<td class="icon"><img src="img/ibra-logo.png" /></td>
+					<td class="post-comment"><a href="" onclick="insert_ibra()">Zlatan Ibrahimovic</a>が世界に衝撃を与えました
+					<div class="date-place">
+						02-03シーズン　AJAX
+					</div></td>
+				</tr>
+			</table>
+			<hr style="color: #ADBAD4" />
+			<div class="description">
+				部活（サッカー）、チャンピオンズリーグ（WOWOW）、ウイイレの日々でした。
+				<br>
+				<br>
+				ヨーロッパのサッカーにハマった時期です。ビルバオが熱いです。
+			</div>
+			<iframe width="400" height="300" src="http://www.youtube.com/embed/Vz5VL3mcso4" frameborder="0"></iframe>
+		</div>
+		<div class="harf-right" id="michael" data-10400="top:100%;" data-10800="top:10%;" data-11100="display:block;" data-12200="top:-100%;">
+			<table>
+				<tr>
+					<td class="icon"><img src="img/mj-logo.jpeg" /></td>
+					<td class="post-comment"><a href="">マイケル・ジャクソン</a>が歌っています。
+					<div class="date-place">
+						2002年くらい　いろいろ
+					</div></td>
+				</tr>
+			</table>
+			<hr style="color: #ADBAD4" />
+			<div class="description">
+				この頃からMJファンです。
+				<br>
+				<br>
+				「smooth criminal」が好きです。PVだいたい好きです。
+			</div>
+			<iframe width="400" height="225" src="http://www.youtube.com/embed/kJbmm50fbOs" frameborder="0" allowfullscreen></iframe>
+		</div>
+		<div class="harf-left" id="twenty-four" data-11500="top:100%;" data-12000="top:10%;" data-12500="display:block;" data-13200="top:-100%;display:none;">
+			<table>
+				<tr>
+					<td class="icon"><img src="img/jack-logo.jpeg" /></td>
+					<td class="post-comment"><a href="">Jack Bauer</a>がCTUにチェックインしました。
+					<div class="date-place">
+						Los Angeles
+					</div></td>
+				</tr>
+			</table>
+			<hr style="color: #ADBAD4" />
+			<div class="description">
+				全シリーズ見ました。もっかい見たいです。
+				<br>
+				<br>
+				CTUみたいなオフィスがいいですね！
+			</div>
+			<img src="img/ctu.jpeg" />
+		</div>
+		<div class="harf-right" id="ryu" data-12400="top:100%;" data-12800="top:10%;" data-13100="display:block;" data-13700="top:-100%;">
+			<table>
+				<tr>
+					<td class="icon"><img src="img/kiryu-logo.jpeg" /></td>
+					<td class="post-comment"><a href="">桐生 一馬</a>がチンピラをぶっ飛ばしました。
+					<div class="date-place">
+						2005年くらい 神室町
+					</div></td>
+				</tr>
+			</table>
+			<hr style="color: #ADBAD4" />
+			<div class="description">
+				桐生一馬のファンです。生き方かっこよすぎです。
+			</div>
+			<img src="img/kiryu-battle.jpeg"/>
+		</div>
+		<div class="big-event" data-13000="top:100%;" data-13700="top:10%;" data-13900="display:block;" data-14200="top:-100%;display:none;">
+			<img src="img/school.png" />
+			<div id="title">
+				Started school at 神戸大学
+			</div>
+			<p>
+				kobe, Hyogo 2006
+			</p>
+		</div>
+		<div class="harf-left" id="pooh" data-13500="top:100%;" data-14000="top:10%;" data-14200="display:block;" data-14800="top:-100%;">
+			<table>
+				<tr>
+					<td class="icon"><img src="img/pooh-logo.jpeg" /></td>
+					<td class="post-comment"><a href="">Winnie the pooh</a>がラビットの家の入り口に詰まりました。
+					<div class="date-place">
+						100エーカーの森
+					</div></td>
+				</tr>
+			</table>
+			<hr style="color: #ADBAD4" />
+			<div class="description">
+				ふてこいですね。かわいいですね。
+			</div>
+			<img src="img/pooh.png" />
+		</div>
+		<div class="harf-right" id="panda" data-14000="top:100%;" data-14200="top:10%;" data-14400="display:block;" data-14700="top:-100%;">
+			<table>
+				<tr>
+					<td class="icon"><img src="img/panda-logo.jpeg" /></td>
+					<td class="post-comment"><a href="">双子のパンダ</a>が<a>アドベンチャーワールド</a>にチェックインしました。
+					<div class="date-place">
+						アドベンチャーワールド
+					</div></td>
+				</tr>
+			</table>
+			<hr style="color: #ADBAD4" />
+			<div class="description">
+				かなりちっさいころからパンダ好きです。
+			</div>
+			<img src="img/panda.jpeg"/>
+		</div>
+		<div class="harf-left" id="sannen" data-14500="top:100%;" data-14600="top:10%;" data-15000="display:block;" data-15500="top:-100%;">
+			<table>
+				<tr>
+					<td class="icon"><img src="img/me-logo.png" /></td>
+					<td class="post-comment"><a href="">Tatsuki Yokomine</a>が「若者はなぜ三年で辞めるのか」に出会いました
+					<div class="date-place">
+						2009年 研究室
+					</div></td>
+				</tr>
+			</table>
+			<hr style="color: #ADBAD4" />
+			<div class="description">
+				人生に大きな影響を与えた本です。
+			</div>
+			<img src="img/sannen.jpeg" />
+		</div>
+		<div class="harf-right" id="social" data-14800="top:100%;" data-15000="top:10%;" data-15200="display:block;" data-15700="top:-100%;">
+			<table>
+				<tr>
+					<td class="icon"><img src="img/social-network-logo.jpeg" /></td>
+					<td class="post-comment"><a href="">Mark Zackerberg</a>が<a>Sean Parker</a>と語りました
+					<div class="date-place">
+						どっかのクラブ(social network)
+					</div></td>
+				</tr>
+			</table>
+			<hr style="color: #ADBAD4" />
+			<div class="description">
+				ビクトリアシークレットの話をする下りですね。
+				<br>
+				<br>
+				ここでゴールデン・ゲート・ブリッジのことを知って見に行きました。
+			</div>
+			<img src="img/social-network.jpeg"/>
+		</div>
+		<div class="harf-left" id="wktc" data-15200="top:100%;" data-15600="top:10%;" data-15800="display:block;" data-16000="top:-100%;">
+			<table>
+				<tr>
+					<td class="icon"><img src="img/me-logo.png" /></td>
+					<td class="post-comment"><a href="">Tatsuki Yokomine</a>がwktc25を始めました。
+					<div class="date-place">
+						2011年 cs25
+					</div></td>
+				</tr>
+			</table>
+			<hr style="color: #ADBAD4" />
+			<div class="description">
+				いろいろなきっかけ、出会いを与えてくれました。
+			</div>
+			<img src="img/wktc.png" />
+		</div>
+		<div class="harf-right" id="tryf" data-15600="top:100%;" data-15800="top:10%;" data-16200="display:block;" data-16700="top:-100%;">
+			<table>
+				<tr>
+					<td class="icon"><img src="img/me-logo.png" /></td>
+					<td class="post-comment"><a href="">Tatsuki Yokomine</a>が<a>TRYF</a>で働き始めました
+					<div class="date-place">
+						関西
+					</div></td>
+				</tr>
+			</table>
+			<hr style="color: #ADBAD4" />
+			<div class="description">
+				優秀な仲間、先輩たちとかなり密な時間を過ごしました。
+			</div>
+			<img src="img/tryf.png"/>
+		</div>
+		<div class="big-event" data-16000="top:100%;" data-16700="top:10%;" data-16900="display:block;" data-17200="top:-100%;display:none;">
+			<img src="img/school.png" />
+			<div id="title">
+				Started work at GaiaX
+			</div>
+			<p>
+				kobe, Hyogo 2012
+			</p>
+		</div>
+		<div class="harf-left" id="balance" data-16900="top:100%;" data-17000="top:10%;" data-17300="display:block;" data-18000="top:-150%;">
+			<table>
+				<tr>
+					<td class="icon"><img src="img/me-logo.png" /></td>
+					<td class="post-comment"><a href="">Tatsuki Yokomine</a>がスライムナイトになりました。
+					<div class="date-place">
+						Gaiax
+					</div></td>
+				</tr>
+			</table>
+			<hr style="color: #ADBAD4" />
+			<div class="description">
+				反響すごかったです。。ｗ
+				<br>
+				<br>
+				目指せ体幹系企業！
+			</div>
+			<img src="img/metal_rider.jpeg" />
+		</div>
+		<div class="harf-right" id="asaren" data-17300="top:100%;" data-17500="top:10%;" data-17800="display:block;" data-18000="top:-100%;">
+			<table>
+				<tr>
+					<td class="icon"><img src="img/me-logo.png" /></td>
+					<td class="post-comment"><a href="">Tatsuki Yokomine</a>が朝練始めました
+					<div class="date-place">
+						ドトール西五反田店
+					</div></td>
+				</tr>
+			</table>
+			<hr style="color: #ADBAD4" />
+			<div class="description">
+				朝7:50から熱くプログラミングしてます！
+			</div>
+			<img src="img/morning.png"/>
+		</div>
+		<div class="harf-left" id="wktc" data-17900="top:100%;" data-18000="top:10%;" data-18600="display:block;" data-19000="top:-100%;">
+			<table>
+				<tr>
+					<td class="icon"><img src="img/me-logo.png" /></td>
+					<td class="post-comment"><a href="">Tatsuki Yokomine</a>がkotologを始めました。
+					<div class="date-place">
+						2012年 with wktcoder
+					</div></td>
+				</tr>
+			</table>
+			<hr style="color: #ADBAD4" />
+			<div class="description">
+				現在絶賛製作中 !!
+			</div>
+			<img src="img/kotolog.png" />
+		</div>
+		<div class="harf-right" id="exhack" data-18300="top:100%;" data-18600="top:10%;" data-18800="display:block;" data-19300="top:-100%;">
+			<table>
+				<tr>
+					<td class="icon"><img src="img/me-logo.png" /></td>
+					<td class="post-comment"><a href="">Tatsuki Yokomine</a>がエクストリームハッカソンを始めました。
+					<div class="date-place">
+						皇居
+					</div></td>
+				</tr>
+			</table>
+			<hr style="color: #ADBAD4" />
+			<div class="description">
+				エクストリームにハッカソンしてます！
+			</div>
+			<img src="img/ex-hack.png"/>
+		</div>
+		<div class="big-event" data-19000="top:100%;" data-19700="top:10%;" data-19900="display:block;" data-20200="top:-100%;display:none;">
+			<table>
+				<tr>
+					<td class="icon"><img src="img/me-logo.png" /></td>
+					<td class="post-comment"><a href="">Tatsuki Yokomine</a>がHondeyを始めました。
+					<div class="date-place">
+						Gaiax with Taku Miyao, Ryu Yanagisawa
+					</div></td>
+				</tr>
+			</table>
+			<hr style="color: #ADBAD4" />
+			<div class="description">
+				絶賛サービス構築中！！乞うご期待！！
+			</div>
+			<img src="img/hondey.png"/>
+		</div>
+		<div id="finish" data-20000="transform:scale(0) rotate(0deg);" data-20500="transform:scale(1) rotate(1440deg);opacity:1;" data-20600="" >
+			<h1>Finish self introduction!!</h1>
+			<h2> There is no shortcuts ! ! </h2>
+		</div>
+		<script type="text/javascript">
+			if(location.search === '?debug') {
+				document.write('<script type="text/javascript" src="https://getfirebug.com/firebug-lite.js"><' + '/script>');
 			}
-		}
-	});
-	</script>
-</body>
+		</script>
+		<script type="text/javascript" src="skrollr.js"></script>
+		<!--[if lt IE 9]>
+		<script type="text/javascript" src="plugins/skrollr.ie.js"></script>
+		<![endif]-->
+		<script type="text/javascript">
+			var s = skrollr.init({
+				beforerender : function(data) {
+					//console.log('beforerender');
+				},
+				render : function() {
+					//console.log('render');
+				},
+				easing : {
+					WTF : Math.random,
+					inverted : function(p) {
+						return 1 - p;
+					}
+				}
+			});
 
+		</script>
+	</body>
 </html>
